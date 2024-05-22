@@ -7,10 +7,19 @@ export default function Home() {
   return <main className={styles.main}>
     <UserProfile/>
     <div>
+
       <Link href="/serach-users">
-        <button>Encontrar usuários</button>
+        <button className="btn--green">Encontrar usuários</button>
       </Link>
-      <RepositoryCard />
+
+      <div className={styles["container-projects"]}>
+        <RepositoryCard />
+        <RepositoryCard />
+        <RepositoryCard />
+        <RepositoryCard />
+        <RepositoryCard />
+        <RepositoryCard />
+      </div>
     </div>
   </main>;
 }
