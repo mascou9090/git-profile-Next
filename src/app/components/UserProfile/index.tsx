@@ -2,12 +2,16 @@ import Image from "next/image";
 import userGit from "../../assets/userGithub.png";
 import styles from "./styles.module.scss";
 
-export default function UserProfile() {
+interface IProp {
+    isMyProfile?: boolean;
+}
+
+export default function UserProfile({ isMyProfile }: IProp) {
     return (
         <div className={styles.container}>
             <div className={styles["container--avatar"]}>
                 <Image src={userGit} width={249} alt="Avatar" height={249} />
-            <div>Meu perfil</div>
+            { isMyProfile && <div>Meu perfil</div>}
 
             </div>
 

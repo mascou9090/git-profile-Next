@@ -5,10 +5,10 @@ import styles from "./page.module.scss";
 
 export default function Home() {
   return <main className={styles.main}>
-    <UserProfile/>
+    <UserProfile isMyProfile />
     <div>
 
-      <Link href="/serach-users">
+      <Link href="/search-user">
         <button className="btn--green">Encontrar usuários</button>
       </Link>
 
