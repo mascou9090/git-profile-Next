@@ -32,7 +32,7 @@ export default function Home() {
           </div>
         </div>
          ) : (
-        <div className={styles["not-found"]}>
+        <div className="not-found">
           <Image src={NotFoundImage} alt="not found" width={400} height={439}/>
           <h3>Nenhu usuário foi encontrado!</h3>
         </div>
