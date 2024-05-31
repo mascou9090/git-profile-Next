@@ -16,7 +16,7 @@ export default async function Home() {
   const dataRepos: GithubReposType[] = await responseRepos.json();
 
   return <main className={styles.main}>
-    <UserProfile isMyProfile />
+    <UserProfile isMyProfile profile={data} />
     <div>
 
       <Link href="/search-user">
@@ -24,12 +24,9 @@ export default async function Home() {
       </Link>
 
       <div className={styles["container-projects"]}>
-        <RepositoryCard />
-        <RepositoryCard />
-        <RepositoryCard />
-        <RepositoryCard />
-        <RepositoryCard />
-        <RepositoryCard />
+       {dataRepos.slice(0,6).map((repos) => (
+        <RepositoryCard repos={repos} key={repos.id}/>
+       ))}
       </div>
     </div>
   </main>;

@@ -1,29 +1,30 @@
 import Image from "next/image";
-import userGit from "../../assets/userGithub.png";
 import styles from "./styles.module.scss";
+import { GithubProfileType } from "@/app/types/GithubProfileTypes";
 
 interface IProp {
     isMyProfile?: boolean;
+    profile: GithubProfileType;
 }
 
-export default function UserProfile({ isMyProfile }: IProp) {
+export default function UserProfile({ isMyProfile, profile }: IProp) {
     return (
         <div className={styles.container}>
             <div className={styles["container--avatar"]}>
-                <Image src={userGit} width={249} alt="Avatar" height={249} />
+                <Image src={profile.avatar_url} width={249} alt="Avatar" height={249} />
             { isMyProfile && <div>Meu perfil</div>}
 
             </div>
 
-            <h1>Marcondes Ferreira</h1>
-            <span>marcondesferreria@test</span>
-            <p>Developer: Front end full stack</p>
+            <h1>{profile.name}</h1>
+            <span>{profile.login}</span>
+            <p>{profile.bio}</p>
 
             <div className={styles["itens-container"]}>
-                <span>@mascou9090</span>
-                <span>Fortaleza</span>
-                <span>mascou@test.com</span>
-                <span>carreira@gmail.com</span>
+                <span>{profile.company}</span>
+                <span>{profile.location}</span>
+                <span>{profile.email}</span>
+                <span>{profile.blog}</span>
             </div>
         </div>
     )
